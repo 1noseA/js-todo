@@ -3,6 +3,12 @@ const onClickAdd = () => {
   const inputText = document.getElementById("add-text").value;
   document.getElementById("add-text").value = "";
 
+  // 未完了リストに追加
+  createInCompleteTodo(inputText);
+}
+
+// 渡された引数を基に未完了のTODOを作成する関数
+const createInCompleteTodo = (todo) => {
   // li生成
   const li = document.createElement("li");
 
@@ -13,7 +19,7 @@ const onClickAdd = () => {
   // p生成
   const p = document.createElement("p");
   p.className = "todo-item";
-  p.innerText = inputText;
+  p.innerText = todo;
 
   // button（完了）タグ生成
   const completeButton = document.createElement("button");
@@ -51,6 +57,6 @@ const onClickAdd = () => {
 
   // 未完了リストに追加
   document.getElementById("incomplete-list").appendChild(li);
-}
+};
 
 document.getElementById("add-button").addEventListener("click", onClickAdd);
